@@ -10,8 +10,8 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-				raj: ["'Public Sans', sans-serif"],
-				public: ["'Rajdhani', sans-serif"],
+				public: ["'Public Sans', sans-serif"],
+				raj: ["'Rajdhani', sans-serif"],
 			},
 			colors: {
 				darkBlue: '#0E172A',
