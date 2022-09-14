@@ -26,6 +26,7 @@ export function appendTaskForm() {
 	const row1 = document.createElement('p');
 	const row2 = document.createElement('p');
 	const row3 = document.createElement('p');
+	const row4 = document.createElement('p');
 
 	titleInput.setAttribute('type', 'text');
 	titleInput.setAttribute('id', 'title');
@@ -38,7 +39,7 @@ export function appendTaskForm() {
 	detailsInput.setAttribute('id', 'details');
 	detailsInput.setAttribute(
 		'placeholder',
-		'e.g., "Finish this task before Dad gets home from the trailer"'
+		'e.g., "Finish this task before the guests arrive at 5pm"'
 	);
 
 	detailsLabel.setAttribute('for', 'details');
@@ -53,18 +54,20 @@ export function appendTaskForm() {
 	submitBtn.textContent = 'Add Task';
 
 	submitBtn.classList.add(
+		'task-form-submit-button',
 		'hover:bg-buttonBlue',
 		'bg-highlightBlue',
 		'text-white',
 		'font-raj',
 		'font-200',
 		'py-1',
-		'px-10',
+		'px-12',
 		'rounded',
 		'mb-2'
 	);
 
 	titleInput.classList.add(
+		'task-title-input',
 		'bg-transparent',
 		'w-full',
 		'focus:border-none',
@@ -74,6 +77,7 @@ export function appendTaskForm() {
 		'focus:ring-0'
 	);
 	detailsInput.classList.add(
+		'task-details-input',
 		'bg-transparent',
 		'w-full',
 		'focus:border-none',
@@ -83,11 +87,17 @@ export function appendTaskForm() {
 		'focus:ring-0'
 	);
 
-	dateInput.classList.add('bg-transparent', 'ml-5', 'mb-2');
+	dateInput.classList.add(
+		'bg-transparent',
+		'ml-5',
+		'mb-2',
+		'task-date-input'
+	);
 
 	row1.classList.add('w-full', 'mb-2');
 	row2.classList.add('w-full', 'mb-2');
 	row3.classList.add('w-full');
+	row4.classList.add('flex', 'justify-center');
 
 	taskForm.classList.add('flex-auto');
 	deleteBtn.classList.add(
@@ -106,7 +116,9 @@ export function appendTaskForm() {
 		'align-middle',
 		'py-2',
 		'gap-2',
-		'flex'
+		'flex',
+		'bg-darkWashedBlue',
+		'bg-opacity-25'
 	);
 
 	row1.appendChild(titleLabel);
@@ -115,11 +127,12 @@ export function appendTaskForm() {
 	row2.appendChild(detailsInput);
 	row3.appendChild(dateLabel);
 	row3.appendChild(dateInput);
+	row4.appendChild(submitBtn);
 
 	taskForm.appendChild(row1);
 	taskForm.appendChild(row2);
 	taskForm.appendChild(row3);
-	taskForm.appendChild(submitBtn);
+	taskForm.appendChild(row4);
 
 	newLi.appendChild(taskForm);
 	newLi.appendChild(deleteBtn);
