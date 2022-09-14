@@ -55,7 +55,7 @@ export function appendTaskForm() {
 
 	submitBtn.classList.add(
 		'task-form-submit-button',
-		'hover:bg-buttonBlue',
+		'hover:bg-lightBlue',
 		'bg-highlightBlue',
 		'text-white',
 		'font-raj',
@@ -63,6 +63,7 @@ export function appendTaskForm() {
 		'py-1',
 		'px-12',
 		'rounded',
+		'mt-4',
 		'mb-2'
 	);
 
@@ -74,8 +75,19 @@ export function appendTaskForm() {
 		'focus:outline-none',
 		'border-transparent',
 		'focus:border-transparent',
-		'focus:ring-0'
+		'focus:ring-0',
+		'text-highlightBlue',
+		'bg-OOFGrey',
+		'bg-opacity-5',
+		'py-1',
+		'px-2',
+		'rounded-md'
 	);
+
+	titleLabel.classList.add('font-bold');
+	detailsLabel.classList.add('font-bold');
+	dateLabel.classList.add('font-bold');
+
 	detailsInput.classList.add(
 		'task-details-input',
 		'bg-transparent',
@@ -84,14 +96,30 @@ export function appendTaskForm() {
 		'focus:outline-none',
 		'border-transparent',
 		'focus:border-transparent',
-		'focus:ring-0'
+		'focus:ring-0',
+		'text-highlightBlue',
+		'bg-OOFGrey',
+		'bg-opacity-5',
+		'py-1',
+		'px-2',
+		'rounded-md'
 	);
 
 	dateInput.classList.add(
+		'task-date-input',
 		'bg-transparent',
-		'ml-5',
-		'mb-2',
-		'task-date-input'
+		'w-full',
+		'focus:border-none',
+		'focus:outline-none',
+		'border-transparent',
+		'focus:border-transparent',
+		'focus:ring-0',
+		'text-highlightBlue',
+		'bg-OOFGrey',
+		'bg-opacity-5',
+		'py-1',
+		'px-2',
+		'rounded-md'
 	);
 
 	row1.classList.add('w-full', 'mb-2');

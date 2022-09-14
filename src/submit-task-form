@@ -3,7 +3,9 @@ export function submitTaskForm() {
 	const taskDetailsInput = document.querySelector('.task-details-input');
 	const taskDateInput = document.querySelector('.task-date-input');
 
-	console.log(taskTitleInput.value);
-	console.log(taskDetailsInput.value);
-	console.log(taskDateInput.value);
+	let title = taskTitleInput.value;
+	let details = taskDetailsInput.value;
+	let date = taskDateInput.value;
+
+	return { title, details, date };
 }
