@@ -55,7 +55,7 @@ export function appendTaskForm() {
 
 	submitBtn.classList.add(
 		'task-form-submit-button',
-		'hover:bg-lightBlue',
+		'hover:bg-green-600',
 		'bg-highlightBlue',
 		'text-white',
 		'font-raj',
@@ -64,7 +64,9 @@ export function appendTaskForm() {
 		'px-12',
 		'rounded',
 		'mt-4',
-		'mb-2'
+		'mb-2',
+		'transition-all',
+		'duration-300'
 	);
 
 	titleInput.classList.add(
@@ -133,10 +135,12 @@ export function appendTaskForm() {
 		'self-start',
 		'mr-2',
 		'mt-1',
-		'cursor-pointer'
+		'cursor-pointer',
+		'create-task-exit'
 	);
 
 	newLi.classList.add(
+		'create-task-li',
 		'pl-4',
 		'border',
 		'rounded',
@@ -145,8 +149,7 @@ export function appendTaskForm() {
 		'py-2',
 		'gap-2',
 		'flex',
-		'bg-darkWashedBlue',
-		'bg-opacity-25'
+		'shadow-2xl'
 	);
 
 	row1.appendChild(titleLabel);

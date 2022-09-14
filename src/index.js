@@ -7,9 +7,10 @@ import { submitTaskForm } from './submit-task-form';
 const addTaskBtn = document.querySelector('.add-task');
 addTaskBtn.addEventListener('click', appendTaskForm);
 
-//Listens for the dynamically created task form submit button and triggers the submit task form function
+//Listens for the dynamically created task form button and triggers the submit task form function
 document.addEventListener('click', function (e) {
 	if (e.target.classList.contains('task-form-submit-button')) {
+		//retrieves form values from function for new Task creation
 		let formValues = submitTaskForm();
 
 		let title = formValues.title;
@@ -21,6 +22,13 @@ document.addEventListener('click', function (e) {
 	}
 });
 
-let newTask = new Task('Clean the Kitchen', 'Do it ASAP', 'Date');
+const taskList = document.querySelector('.task-list');
 
-console.log(newTask);
+document.addEventListener('click', function (e) {
+	if (e.target.classList.contains('create-task-exit')) {
+		// taskList.removeChild('create-task-li');
+		// const newLi = document.querySelector('create-task-li');
+		taskList.removeChild(taskList.lastChild);
+		console.log('exit');
+	}
+});
