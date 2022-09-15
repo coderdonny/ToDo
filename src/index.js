@@ -2,6 +2,7 @@ import './style.css';
 import Task from './create-task';
 import { appendTaskForm } from './append-task-form';
 import { submitTaskForm } from './submit-task-form';
+import tabManager from './tab-manager';
 
 //Listens for click on the add task button and appends task form
 const addTaskBtn = document.querySelector('.add-task');
@@ -32,3 +33,7 @@ document.addEventListener('click', function (e) {
 		console.log('exit');
 	}
 });
+
+let tab = tabManager();
+
+console.log(tab);

@@ -66,7 +66,7 @@ export function appendTaskForm() {
 		'mt-4',
 		'mb-2',
 		'transition-all',
-		'duration-300'
+		'duration-500'
 	);
 
 	titleInput.classList.add(
