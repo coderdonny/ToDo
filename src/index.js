@@ -2,7 +2,8 @@ import './style.css';
 import Task from './create-task';
 import { appendTaskForm } from './append-task-form';
 import { submitTaskForm } from './submit-task-form';
-import tabManager from './tab-manager';
+import renderPage from './render-page';
+import addTaskToArray from './task-array';
 
 //Listens for click on the add task button and appends task form
 const addTaskBtn = document.querySelector('.add-task');
@@ -18,22 +19,34 @@ document.addEventListener('click', function (e) {
 		let details = formValues.details;
 		let date = formValues.date;
 
-		const newTask = new Task(title, date, details);
+		const newTask = new Task(title, details, date);
+		const array = addTaskToArray(newTask);
+		console.log(array);
 		console.log(newTask);
 	}
 });
 
 const taskList = document.querySelector('.task-list');
 
+//Removes the task form when exit button is clicked
 document.addEventListener('click', function (e) {
 	if (e.target.classList.contains('create-task-exit')) {
-		// taskList.removeChild('create-task-li');
-		// const newLi = document.querySelector('create-task-li');
 		taskList.removeChild(taskList.lastChild);
 		console.log('exit');
 	}
 });
 
-let tab = tabManager();
+const allTasksTab = document.querySelector('.all-tasks-tab');
+const todayTab = document.querySelector('.today-tab');
+const weekTab = document.querySelector('.week-tab');
 
-console.log(tab);
+allTasksTab.addEventListener('click', function () {
+	console.log('all tasks');
+	renderPage();
+});
+todayTab.addEventListener('click', function () {
+	console.log('todays tasks');
+});
+weekTab.addEventListener('click', function () {
+	console.log('weeks tasks');
+});
