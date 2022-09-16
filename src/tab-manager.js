@@ -1,11 +1,22 @@
-const taskSideBar = document.querySelector('.task-sidebar');
+import renderAllTasks from './render-all-tasks';
+import removeAllChildren from './remove-page';
+//loads the renderAllTasks page by default
+renderAllTasks();
 
-taskSideBar.addEventListener('click', function () {
-	if (e.target.classList.contains('all-tasks-tab')) {
-		console.log('all');
-	} else if (e.target.classList.contains('today-tab')) {
-		console.log('today');
-	} else if (e.target.classList.contains('week-tab')) {
-		console.log('week');
+let currentTab = 'all';
+export default function tabManager(tabName) {
+	if (tabName === currentTab) {
+		return;
+	} else if (tabName === 'all') {
+		removeAllChildren();
+		currentTab = 'all';
+		renderAllTasks();
+	} else if (tabName === 'today') {
+		removeAllChildren();
+		currentTab = 'today';
+	} else if (tabName === 'week') {
+		removeAllChildren();
+		currentTab = 'week';
 	}
-});
+	console.log(currentTab);
+}

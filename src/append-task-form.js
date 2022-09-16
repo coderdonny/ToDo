@@ -9,6 +9,8 @@ export function appendTaskForm() {
 	const titleLabel = document.createElement('label');
 	const titleInput = document.createElement('input');
 
+	titleInput.setAttribute('required', '');
+
 	const detailsLabel = document.createElement('label');
 	const detailsInput = document.createElement('input');
 

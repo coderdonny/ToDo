@@ -4,10 +4,15 @@ import { appendTaskForm } from './append-task-form';
 import { submitTaskForm } from './submit-task-form';
 import renderPage from './render-page';
 import addTaskToArray from './task-array';
+import appendTaskAddButton from './append-add-task-button';
+import tabManager from './tab-manager';
+import renderAllTasks from './render-all-tasks';
 
-//Listens for click on the add task button and appends task form
-const addTaskBtn = document.querySelector('.add-task');
-addTaskBtn.addEventListener('click', appendTaskForm);
+document.addEventListener('click', function (e) {
+	if (e.target.classList.contains('add-task')) {
+		appendTaskForm();
+	}
+});
 
 //Listens for the dynamically created task form button and triggers the submit task form function
 document.addEventListener('click', function (e) {
@@ -19,10 +24,14 @@ document.addEventListener('click', function (e) {
 		let details = formValues.details;
 		let date = formValues.date;
 
-		const newTask = new Task(title, details, date);
-		const array = addTaskToArray(newTask);
-		console.log(array);
-		console.log(newTask);
+		if (title === '') {
+			return;
+		} else {
+			const newTask = new Task(title, details, date);
+			const array = addTaskToArray(newTask);
+			console.log(array);
+			console.log(newTask);
+		}
 	}
 });
 
@@ -41,12 +50,11 @@ const todayTab = document.querySelector('.today-tab');
 const weekTab = document.querySelector('.week-tab');
 
 allTasksTab.addEventListener('click', function () {
-	console.log('all tasks');
-	renderPage();
+	tabManager('all');
 });
 todayTab.addEventListener('click', function () {
-	console.log('todays tasks');
+	tabManager('today');
 });
 weekTab.addEventListener('click', function () {
-	console.log('weeks tasks');
+	tabManager('week');
 });
