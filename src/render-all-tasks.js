@@ -32,11 +32,11 @@ export default function renderAllTasks() {
 		}
 	});
 
-	// document.addEventListener('click', function (e) {
-	// 	if (e.target.classList.contains('create-task-exit')) {
-	// 		taskContainer.removeChild(createTaskLi);
-	// 		taskContainer.appendChild(appendTaskAddButton());
-	// 		console.log('exit');
-	// 	}
-	// });
+	document.addEventListener('click', function (e) {
+		if (e.target.classList.contains('create-task-exit')) {
+			document.querySelector('.create-task-li').remove();
+			taskList.appendChild(appendTaskAddButton());
+			console.log('exit');
+		}
+	});
 }
