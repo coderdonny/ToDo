@@ -2,7 +2,7 @@ export function appendTaskForm() {
 	const addTaskBtn = document.querySelector('.add-task');
 	const taskList = document.querySelector('.task-list');
 
-	taskList.removeChild(addTaskBtn);
+	// taskList.removeChild(addTaskBtn);
 	// addTaskBtn.removeEventListener('click', appendTaskForm);
 	const newLi = document.createElement('li');
 
@@ -169,5 +169,5 @@ export function appendTaskForm() {
 
 	newLi.appendChild(taskForm);
 	newLi.appendChild(deleteBtn);
-	taskList.appendChild(newLi);
+	return newLi;
 }

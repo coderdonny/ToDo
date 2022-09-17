@@ -9,8 +9,8 @@ export default function tabManager(tabName) {
 		return;
 	} else if (tabName === 'all') {
 		removeAllChildren();
-		currentTab = 'all';
 		renderAllTasks();
+		currentTab = 'all';
 	} else if (tabName === 'today') {
 		removeAllChildren();
 		currentTab = 'today';

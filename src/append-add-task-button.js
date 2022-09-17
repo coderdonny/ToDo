@@ -33,5 +33,6 @@ export default function appendTaskAddButton() {
 	addTaskButton.appendChild(addIcon);
 	addTaskButton.appendChild(addTaskText);
 
-	taskList.appendChild(addTaskButton);
+	// taskList.appendChild(addTaskButton);
+	return addTaskButton;
 }
