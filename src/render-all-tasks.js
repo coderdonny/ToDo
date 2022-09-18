@@ -24,17 +24,16 @@ export default function renderAllTasks() {
 
 	taskContainer.appendChild(taskList);
 
-	document.addEventListener('click', function (e) {
+	taskList.addEventListener('click', function (e) {
 		if (e.target.classList.contains('add-task')) {
-			// taskList.removeChild(taskList.lastChild);
-			taskContainer.appendChild(appendTaskForm());
-			document.querySelector('.add-task').remove();
+			taskList.appendChild(appendTaskForm());
+			taskList.querySelector('.add-task').remove();
 		}
 	});
 
-	document.addEventListener('click', function (e) {
+	taskList.addEventListener('click', function (e) {
 		if (e.target.classList.contains('create-task-exit')) {
-			document.querySelector('.create-task-li').remove();
+			taskList.querySelector('.create-task-li').remove();
 			taskList.appendChild(appendTaskAddButton());
 			console.log('exit');
 		}

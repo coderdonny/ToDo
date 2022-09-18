@@ -6,6 +6,9 @@ import addTaskToArray from './task-array';
 import appendTaskAddButton from './append-add-task-button';
 import tabManager from './tab-manager';
 import renderAllTasks from './render-all-tasks';
+import renderTask from './render-task';
+
+const taskList = document.querySelector('.task-list');
 
 //Listens for the dynamically created task form button and triggers the submit task form function
 document.addEventListener('click', function (e) {
@@ -22,8 +25,11 @@ document.addEventListener('click', function (e) {
 		} else {
 			const newTask = new Task(title, details, date);
 			const array = addTaskToArray(newTask);
+			renderTask(newTask);
 			console.log(array);
 			console.log(newTask);
+			document.querySelector('.create-task-li').remove();
+			taskList.appendChild(appendTaskAddButton());
 		}
 	}
 });
