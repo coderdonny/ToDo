@@ -27,7 +27,9 @@ export default function appendTaskAddButton() {
 		'hover:bg-opacity-10',
 		'cursor-pointer',
 		'transition-all',
-		'duration-300'
+		'duration-300',
+		'opacity-60',
+		'hover:opacity-100'
 	);
 
 	addTaskButton.appendChild(addIcon);
