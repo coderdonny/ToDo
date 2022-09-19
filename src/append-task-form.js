@@ -44,6 +44,8 @@ export function appendTaskForm() {
 		'e.g., "Finish this task before the guests arrive at 5pm"'
 	);
 
+	submitBtn.setAttribute('type', 'submit');
+
 	detailsLabel.setAttribute('for', 'details');
 	detailsLabel.textContent = 'Details:';
 

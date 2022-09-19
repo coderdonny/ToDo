@@ -16,14 +16,14 @@ export default function renderTask(newTask) {
 	dateDOM.textContent = date;
 
 	newTaskDOM.classList.add(
-		'px-4',
+		'px-2',
 		'flex',
 		'border',
 		'rounded',
 		'border-lightBlue',
 		'align-middle',
 		'py-2',
-		'gap-2',
+		'gap-4',
 		'transition-all',
 		'duration-300',
 		'justify-between'

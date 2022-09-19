@@ -1,10 +1,18 @@
 import appendTaskAddButton from './append-add-task-button';
 import { appendTaskForm } from './append-task-form';
 
-export default function renderAllTasks() {
+export default function renderPage(tab) {
 	//Create page Title
 	const pageTitle = document.createElement('h1');
-	pageTitle.textContent = 'All Tasks';
+
+	if (tab === 'all') {
+		pageTitle.textContent = 'All Tasks';
+	} else if (tab === 'today') {
+		pageTitle.textContent = 'Today';
+	} else if (tab === 'week') {
+		pageTitle.textContent = 'Week';
+	}
+
 	pageTitle.classList.add('page-title', 'text-center', 'text-2xl', 'mb-2');
 
 	//Create list to append task items

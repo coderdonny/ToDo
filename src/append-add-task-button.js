@@ -28,7 +28,7 @@ export default function appendTaskAddButton() {
 		'cursor-pointer',
 		'transition-all',
 		'duration-300',
-		'opacity-60',
+		'opacity-80',
 		'hover:opacity-100'
 	);
 
