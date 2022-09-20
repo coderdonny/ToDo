@@ -34,6 +34,9 @@ export function appendTaskForm() {
 	titleInput.setAttribute('id', 'title');
 	titleInput.setAttribute('placeholder', 'e.g., "Clean the dishes"');
 
+	taskForm.setAttribute('action', '#');
+	taskForm.setAttribute('method', 'get');
+
 	titleLabel.setAttribute('for', 'title');
 	titleLabel.textContent = 'Title:';
 
@@ -56,6 +59,8 @@ export function appendTaskForm() {
 	dateLabel.textContent = 'Due date:';
 
 	submitBtn.textContent = 'Add Task';
+
+	taskForm.classList.add('task-form');
 
 	submitBtn.classList.add(
 		'task-form-submit-button',

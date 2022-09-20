@@ -4,7 +4,9 @@ import { appendTaskForm } from './append-task-form';
 export default function renderPage(tab) {
 	//Create page Title
 	const pageTitle = document.createElement('h1');
+	pageTitle.classList.add('page-title', 'text-center', 'text-2xl', 'mb-2');
 
+	//displays title depending on which tab was clicked
 	if (tab === 'all') {
 		pageTitle.textContent = 'All Tasks';
 	} else if (tab === 'today') {
@@ -12,8 +14,6 @@ export default function renderPage(tab) {
 	} else if (tab === 'week') {
 		pageTitle.textContent = 'Week';
 	}
-
-	pageTitle.classList.add('page-title', 'text-center', 'text-2xl', 'mb-2');
 
 	//Create list to append task items
 	const taskList = document.createElement('ul');

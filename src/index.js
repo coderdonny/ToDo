@@ -1,33 +1,33 @@
 import './style.css';
-// import Task from './create-task';
+import Task from './create-task';
 import { appendTaskForm } from './append-task-form';
 import { submitTaskForm } from './submit-task-form';
-// import addTaskToArray from './task-array';
+import addTaskToArray from './task-array';
 // import appendTaskAddButton from './append-add-task-button';
 import renderPage from './render-page';
 import removeAllChildren from './remove-page';
-// import renderTask from './render-task';
+import renderTask from './render-task';
 
-//Listens for the dynamically created task form button and triggers the submit task form function
-// function formSubmit() {
-// 	//retrieves form values from function for new Task creation
-// 	let formValues = submitTaskForm();
-// 	let title = formValues.title;
-// 	let details = formValues.details;
-// 	let date = formValues.date;
+const allTasks = [];
 
-// 	if (title === '') {
-// 		return;
-// 	} else {
-// 		const newTask = new Task(title, details, date);
-// 		const array = addTaskToArray(newTask);
-// 		renderTask(newTask);
-// 		console.log(array);
-// 		console.log(newTask);
-// 		document.querySelector('.create-task-li').remove();
-// 		taskList.appendChild(appendTaskAddButton());
-// 	}
-// }
+document.addEventListener('submit', function (e) {
+	e.preventDefault();
+	const taskForm = e.target;
+	let formValues = submitTaskForm();
+	let title = formValues.title;
+	let details = formValues.details;
+	let date = formValues.date;
+
+	const newTask = new Task(title, details, date);
+	allTasks.push(newTask);
+	renderTask(newTask);
+
+	console.log(newTask);
+	document.querySelector('.create-task-li').remove();
+
+	console.log('submit form test');
+	console.log(allTasks);
+});
 
 const allTasksTab = document.querySelector('.all-tasks-tab');
 const todayTab = document.querySelector('.today-tab');
