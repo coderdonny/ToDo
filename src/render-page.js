@@ -1,5 +1,6 @@
 import appendTaskAddButton from './append-add-task-button';
 import { appendTaskForm } from './append-task-form';
+import { allTasks } from '.';
 
 export default function renderPage(tab) {
 	//Create page Title
@@ -17,16 +18,15 @@ export default function renderPage(tab) {
 
 	//Create list to append task items
 	const taskList = document.createElement('ul');
-	taskList.classList.add('task-list', 'space-y-2');
+	taskList.classList.add('task-list', 'space-y-4');
 
 	//Container query selector where everything will append to
 	const taskContainer = document.querySelector('.task-container');
 
 	//query selectors for buttons
 	const createTaskLi = document.querySelector('.create-task-li');
-	const addTaskButton = document.querySelector('.add-task');
 
-	taskList.appendChild(appendTaskAddButton());
+	// taskList.appendChild(appendTaskAddButton());
 
 	taskContainer.appendChild(pageTitle);
 
