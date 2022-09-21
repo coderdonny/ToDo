@@ -59,6 +59,8 @@ document.addEventListener('submit', function (e) {
 	console.log('submit form test');
 	console.log(allTasks);
 
+	document.querySelector('.modal-container').remove();
+
 	removeAllChildren();
 	currentTab = 'all';
 	renderPage(currentTab);

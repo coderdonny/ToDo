@@ -39,6 +39,7 @@ export function appendTaskForm() {
 
 	titleLabel.setAttribute('for', 'title');
 	titleLabel.textContent = 'Title:';
+	titleLabel.classList.add('text-white');
 
 	detailsInput.setAttribute('type', 'text');
 	detailsInput.setAttribute('id', 'details');
@@ -51,12 +52,14 @@ export function appendTaskForm() {
 
 	detailsLabel.setAttribute('for', 'details');
 	detailsLabel.textContent = 'Details:';
+	detailsLabel.classList.add('text-white');
 
 	dateInput.setAttribute('type', 'date');
 	dateInput.setAttribute('id', 'date');
 
 	dateLabel.setAttribute('for', 'date');
 	dateLabel.textContent = 'Due date:';
+	dateLabel.classList.add('text-white');
 
 	submitBtn.textContent = 'Add Task';
 
@@ -89,7 +92,7 @@ export function appendTaskForm() {
 		'focus:ring-0',
 		'text-highlightBlue',
 		'bg-OOFGrey',
-		'bg-opacity-5',
+		'bg-opacity-10',
 		'py-1',
 		'px-2',
 		'rounded-md'
@@ -110,7 +113,7 @@ export function appendTaskForm() {
 		'focus:ring-0',
 		'text-highlightBlue',
 		'bg-OOFGrey',
-		'bg-opacity-5',
+		'bg-opacity-10',
 		'py-1',
 		'px-2',
 		'rounded-md'
@@ -127,7 +130,7 @@ export function appendTaskForm() {
 		'focus:ring-0',
 		'text-highlightBlue',
 		'bg-OOFGrey',
-		'bg-opacity-5',
+		'bg-opacity-10',
 		'py-1',
 		'px-2',
 		'rounded-md'
@@ -158,7 +161,28 @@ export function appendTaskForm() {
 		'py-2',
 		'gap-2',
 		'flex',
-		'shadow-2xl'
+		'shadow-2xl',
+		'w-1/3',
+		'h-fit',
+		'my-52',
+		'bg-darkBlue',
+		'bg-opacity-5',
+		'backdrop-blur-xl',
+		'font-raj'
+	);
+
+	const modalContainer = document.createElement('div');
+
+	modalContainer.classList.add(
+		'modal-container',
+		'fixed',
+		'inset-0',
+		// 'backdrop-blur-sm',
+		'flex',
+		'justify-center',
+		'bg-darkBlue',
+		'bg-opacity-20',
+		'm-0'
 	);
 
 	row1.appendChild(titleLabel);
@@ -176,5 +200,7 @@ export function appendTaskForm() {
 
 	newLi.appendChild(taskForm);
 	newLi.appendChild(deleteBtn);
-	return newLi;
+
+	modalContainer.appendChild(newLi);
+	return modalContainer;
 }

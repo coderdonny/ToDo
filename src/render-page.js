@@ -34,14 +34,15 @@ export default function renderPage(tab) {
 
 	taskList.addEventListener('click', function (e) {
 		if (e.target.classList.contains('add-task')) {
-			taskList.appendChild(appendTaskForm());
+			document.body.appendChild(appendTaskForm());
 			taskList.querySelector('.add-task').remove();
 		}
 	});
 
-	taskList.addEventListener('click', function (e) {
+	document.addEventListener('click', function (e) {
 		if (e.target.classList.contains('create-task-exit')) {
-			taskList.querySelector('.create-task-li').remove();
+			document.body.querySelector('.create-task-li').remove();
+			document.body.querySelector('.modal-container').remove();
 			taskList.appendChild(appendTaskAddButton());
 			console.log('exit');
 		}
