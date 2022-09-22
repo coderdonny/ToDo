@@ -28,8 +28,8 @@ export const allTasks = [
 		dueDate: '2022-07-11',
 	},
 	{
-		title: 'Walk the dog',
-		details: 'give him a bath after',
+		title: 'Practice the guitar',
+		details: 'work on the blues riff',
 		dueDate: '2022-07-11',
 	},
 	{
@@ -54,6 +54,13 @@ document.addEventListener('submit', function (e) {
 	let title = formValues.title;
 	let details = formValues.details;
 	let date;
+
+	if (formValues.details === '') {
+		details = 'N/A';
+	} else {
+		details = formValues.details;
+	}
+
 	if (formValues.date === '') {
 		date = 'N/A';
 	} else {
@@ -72,7 +79,7 @@ document.addEventListener('submit', function (e) {
 	modalContainer.classList.add('hidden');
 
 	removeAllChildren();
-	currentTab = 'all';
+	// currentTab = 'all';
 	renderPage(currentTab);
 	renderTasks();
 
@@ -108,17 +115,11 @@ weekTab.addEventListener('click', function () {
 	removeAllChildren();
 	currentTab = 'week';
 	renderPage(currentTab);
+	renderTasks();
 });
 
 renderPage(currentTab);
 renderTasks();
-
-const taskList = document.querySelector('.task-list');
-const addTaskButton = document.querySelector('.add-task');
-
-addTaskButton.addEventListener('click', function () {
-	console.log('hello');
-});
 
 document.addEventListener('click', function (e) {
 	if (e.target.classList.contains('add-task')) {

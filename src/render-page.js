@@ -26,8 +26,6 @@ export default function renderPage(tab) {
 	//query selectors for buttons
 	const createTaskLi = document.querySelector('.create-task-li');
 
-	// taskList.appendChild(appendTaskAddButton());
-
 	taskContainer.appendChild(pageTitle);
 
 	taskContainer.appendChild(taskList);

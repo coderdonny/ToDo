@@ -167,7 +167,7 @@ export function appendTaskForm() {
 		'my-52',
 		'bg-darkBlue',
 		'bg-opacity-10',
-		'backdrop-blur-xl',
+		'backdrop-blur-lg',
 		'font-raj'
 	);
 
@@ -177,11 +177,10 @@ export function appendTaskForm() {
 		'modal-container',
 		'fixed',
 		'inset-0',
-		// 'backdrop-blur-sm',
 		'flex',
 		'justify-center',
 		'bg-darkBlue',
-		'bg-opacity-40',
+		'bg-opacity-50',
 		'm-0',
 		'hidden'
 	);
