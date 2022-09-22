@@ -32,6 +32,16 @@ export const allTasks = [
 		details: 'give him a bath after',
 		dueDate: '2022-07-11',
 	},
+	{
+		title: 'Clean the car',
+		details: 'N/A',
+		dueDate: '2022-07-11',
+	},
+	{
+		title: 'Get a haircut',
+		details: 'N/A',
+		dueDate: '2022-07-11',
+	},
 ];
 
 let currentTab = 'all';
@@ -54,17 +64,20 @@ document.addEventListener('submit', function (e) {
 	allTasks.push(newTask);
 
 	console.log(newTask);
-	document.querySelector('.create-task-li').remove();
 
 	console.log('submit form test');
 	console.log(allTasks);
 
-	document.querySelector('.modal-container').remove();
+	const modalContainer = document.querySelector('.modal-container');
+	modalContainer.classList.add('hidden');
 
 	removeAllChildren();
 	currentTab = 'all';
 	renderPage(currentTab);
 	renderTasks();
+
+	const taskFormDOM = document.querySelector('.task-form');
+	taskFormDOM.reset();
 });
 
 const allTasksTab = document.querySelector('.all-tasks-tab');
@@ -99,3 +112,28 @@ weekTab.addEventListener('click', function () {
 
 renderPage(currentTab);
 renderTasks();
+
+const taskList = document.querySelector('.task-list');
+const addTaskButton = document.querySelector('.add-task');
+
+addTaskButton.addEventListener('click', function () {
+	console.log('hello');
+});
+
+document.addEventListener('click', function (e) {
+	if (e.target.classList.contains('add-task')) {
+		const modalContainer = document.querySelector('.modal-container');
+		modalContainer.classList.remove('hidden');
+		console.log('add task click');
+	}
+});
+
+document.addEventListener('click', function (e) {
+	if (e.target.classList.contains('create-task-exit')) {
+		const modalContainer = document.querySelector('.modal-container');
+		modalContainer.classList.add('hidden');
+		console.log('exit');
+	}
+});
+
+document.body.appendChild(appendTaskForm());

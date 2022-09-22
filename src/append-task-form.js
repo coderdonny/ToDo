@@ -166,7 +166,7 @@ export function appendTaskForm() {
 		'h-fit',
 		'my-52',
 		'bg-darkBlue',
-		'bg-opacity-5',
+		'bg-opacity-10',
 		'backdrop-blur-xl',
 		'font-raj'
 	);
@@ -181,8 +181,9 @@ export function appendTaskForm() {
 		'flex',
 		'justify-center',
 		'bg-darkBlue',
-		'bg-opacity-20',
-		'm-0'
+		'bg-opacity-40',
+		'm-0',
+		'hidden'
 	);
 
 	row1.appendChild(titleLabel);
