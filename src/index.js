@@ -10,12 +10,12 @@ export const allTasks = [
 	{
 		title: 'Clean the Dishes',
 		details: 'Be done by 5pm',
-		dueDate: '2022-12-11',
+		dueDate: '2022-09-29',
 	},
 	{
 		title: 'Walk the dog',
 		details: 'give him a bath after',
-		dueDate: '2022-11-11',
+		dueDate: '2022-09-29',
 	},
 	{
 		title: 'Finish work assignment',
@@ -73,9 +73,8 @@ document.addEventListener('submit', function (e) {
 	modalContainer.classList.add('hidden');
 
 	removeAllChildren();
-	// currentTab = 'all';
 	renderPage(currentTab);
-	renderTasks();
+	renderTasks(currentTab);
 
 	const taskFormDOM = document.querySelector('.task-form');
 	taskFormDOM.reset();
@@ -92,7 +91,7 @@ allTasksTab.addEventListener('click', function () {
 	removeAllChildren();
 	currentTab = 'all';
 	renderPage(currentTab);
-	renderTasks();
+	renderTasks(currentTab);
 });
 todayTab.addEventListener('click', function () {
 	if (currentTab === 'today') {
@@ -101,6 +100,7 @@ todayTab.addEventListener('click', function () {
 	removeAllChildren();
 	currentTab = 'today';
 	renderPage(currentTab);
+	renderTasks(currentTab);
 });
 weekTab.addEventListener('click', function () {
 	if (currentTab === 'week') {
@@ -109,7 +109,7 @@ weekTab.addEventListener('click', function () {
 	removeAllChildren();
 	currentTab = 'week';
 	renderPage(currentTab);
-	renderTasks();
+	renderTasks(currentTab);
 });
 
 renderPage(currentTab);

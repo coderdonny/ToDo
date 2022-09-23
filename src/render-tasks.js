@@ -3,7 +3,21 @@ import appendTaskAddButton from './append-add-task-button';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { parseISO, format } from 'date-fns';
 
-export default function renderTasks() {
+export default function renderTasks(tab) {
+	//sorts tasks by closest due date
+	allTasks.sort(function compare(a, b) {
+		var dateA = new Date(a.dueDate);
+		var dateB = new Date(b.dueDate);
+		return dateA - dateB;
+	});
+
+	if (tab === 'all') {
+		allTasks;
+	} else if (tab === 'today') {
+		console.log('hello');
+	} else if (tab === 'week') {
+	}
+
 	for (let i = 0; i < allTasks.length; i++) {
 		let title = allTasks[i].title;
 		let details = allTasks[i].details;
