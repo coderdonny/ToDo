@@ -9,7 +9,7 @@ import renderTasks from './render-tasks';
 export const allTasks = [
 	{
 		title: 'Clean the Dishes',
-		details: 'Be done by 5pm',
+		details: 'must be done by 5pm',
 		dueDate: '2022-09-29',
 	},
 	{
@@ -25,7 +25,7 @@ export const allTasks = [
 	{
 		title: 'Go grocery shopping',
 		details: 'eggs, bacon, bread, blueberries',
-		dueDate: '2022-10-11',
+		dueDate: '2022-03-11',
 	},
 	{
 		title: 'Practice the guitar',

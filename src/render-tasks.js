@@ -79,6 +79,19 @@ export default function renderTasks(tab) {
 			'transition-all',
 			'duration-300'
 		);
+
+		if (date.includes('ago')) {
+			newTaskDOM.classList.add(
+				'opacity-40',
+				'bg-red-400',
+				'bg-opacity-40',
+				'border-transparent'
+			);
+			titleDOM.classList.add('line-through');
+			detailsDOM.classList.add('line-through');
+			dateDOM.classList.add('line-through');
+		}
+
 		detailsDOM.classList.add('text-OOFGrey');
 
 		newTaskDOM.appendChild(titleContainer);
