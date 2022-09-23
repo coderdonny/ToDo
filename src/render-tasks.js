@@ -1,10 +1,21 @@
 import { allTasks } from '.';
 import appendTaskAddButton from './append-add-task-button';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { parseISO, format } from 'date-fns';
+
 export default function renderTasks() {
 	for (let i = 0; i < allTasks.length; i++) {
 		let title = allTasks[i].title;
 		let details = allTasks[i].details;
 		let date = allTasks[i].dueDate;
+
+		if (date === '') {
+			date = 'N/A';
+		} else {
+			date = formatDistanceToNow(parseISO(allTasks[i].dueDate), {
+				addSuffix: true,
+			});
+		}
 
 		const taskList = document.querySelector('.task-list');
 		const newTaskDOM = document.createElement('li');

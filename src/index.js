@@ -10,37 +10,37 @@ export const allTasks = [
 	{
 		title: 'Clean the Dishes',
 		details: 'Be done by 5pm',
-		dueDate: '2022-07-11',
+		dueDate: '2022-12-11',
 	},
 	{
 		title: 'Walk the dog',
 		details: 'give him a bath after',
-		dueDate: '2022-07-11',
+		dueDate: '2022-11-11',
 	},
 	{
 		title: 'Finish work assignment',
 		details: 'hand it in before 8pm',
-		dueDate: '2022-07-11',
+		dueDate: '2022-12-11',
 	},
 	{
 		title: 'Go grocery shopping',
 		details: 'eggs, bacon, bread, blueberries',
-		dueDate: '2022-07-11',
+		dueDate: '2022-10-11',
 	},
 	{
 		title: 'Practice the guitar',
 		details: 'work on the blues riff',
-		dueDate: '2022-07-11',
+		dueDate: '2022-09-11',
 	},
 	{
 		title: 'Clean the car',
 		details: 'N/A',
-		dueDate: '2022-07-11',
+		dueDate: '2022-12-11',
 	},
 	{
 		title: 'Get a haircut',
 		details: 'N/A',
-		dueDate: '2022-07-11',
+		dueDate: '2022-12-11',
 	},
 ];
 
@@ -53,18 +53,12 @@ document.addEventListener('submit', function (e) {
 	let formValues = submitTaskForm();
 	let title = formValues.title;
 	let details = formValues.details;
-	let date;
+	let date = formValues.date;
 
 	if (formValues.details === '') {
 		details = 'N/A';
 	} else {
 		details = formValues.details;
-	}
-
-	if (formValues.date === '') {
-		date = 'N/A';
-	} else {
-		date = formValues.date;
 	}
 
 	const newTask = new Task(title, details, date);
