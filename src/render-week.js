@@ -3,7 +3,7 @@ import appendTaskAddButton from './append-add-task-button';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { parseISO, format } from 'date-fns';
 
-export default function renderTasks() {
+export default function renderWeek() {
 	//sorts tasks by closest due date
 	allTasks.sort(function compare(a, b) {
 		var dateA = new Date(a.dueDate);
@@ -22,10 +22,10 @@ export default function renderTasks() {
 		);
 	}
 
-	for (let i = 0; i < allTasks.length; i++) {
-		let title = allTasks[i].title;
-		let details = allTasks[i].details;
-		let date = allTasks[i].dueDate;
+	for (let i = 0; i < weekArray.length; i++) {
+		let title = weekArray[i].title;
+		let details = weekArray[i].details;
+		let date = weekArray[i].dueDate;
 
 		// console.log(parseISO(date));
 

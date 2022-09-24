@@ -5,12 +5,24 @@ import { submitTaskForm } from './submit-task-form';
 import renderPage from './render-page';
 import removeAllChildren from './remove-page';
 import renderTasks from './render-tasks';
+import renderWeek from './render-week';
+import renderToday from './render-today';
 
 export const allTasks = [
 	{
 		title: 'Clean the Dishes',
 		details: 'must be done by 5pm',
 		dueDate: '2022-09-29',
+	},
+	{
+		title: 'Clean the yard',
+		details: 'before bag pickup',
+		dueDate: '2022-09-30',
+	},
+	{
+		title: 'Go shopping',
+		details: 'buy shirts',
+		dueDate: '2022-09-27',
 	},
 	{
 		title: 'Walk the dog',
@@ -20,12 +32,12 @@ export const allTasks = [
 	{
 		title: 'Finish work assignment',
 		details: 'hand it in before 8pm',
-		dueDate: '2022-12-11',
+		dueDate: '2021-12-11',
 	},
 	{
 		title: 'Go grocery shopping',
 		details: 'eggs, bacon, bread, blueberries',
-		dueDate: '2022-03-11',
+		dueDate: '2023-01-11',
 	},
 	{
 		title: 'Practice the guitar',
@@ -45,6 +57,16 @@ export const allTasks = [
 ];
 
 let currentTab = 'all';
+
+function taskRenderer(tab) {
+	if (tab === 'all') {
+		return renderTasks();
+	} else if (tab === 'today') {
+		return renderToday;
+	} else if (tab === 'week') {
+		return renderWeek();
+	}
+}
 
 //submits form, adds task to array and sends values to Task class
 document.addEventListener('submit', function (e) {
@@ -74,7 +96,7 @@ document.addEventListener('submit', function (e) {
 
 	removeAllChildren();
 	renderPage(currentTab);
-	renderTasks(currentTab);
+	taskRenderer(currentTab);
 
 	const taskFormDOM = document.querySelector('.task-form');
 	taskFormDOM.reset();
@@ -91,7 +113,7 @@ allTasksTab.addEventListener('click', function () {
 	removeAllChildren();
 	currentTab = 'all';
 	renderPage(currentTab);
-	renderTasks(currentTab);
+	renderTasks();
 });
 todayTab.addEventListener('click', function () {
 	if (currentTab === 'today') {
@@ -100,7 +122,7 @@ todayTab.addEventListener('click', function () {
 	removeAllChildren();
 	currentTab = 'today';
 	renderPage(currentTab);
-	renderTasks(currentTab);
+	renderToday();
 });
 weekTab.addEventListener('click', function () {
 	if (currentTab === 'week') {
@@ -109,11 +131,11 @@ weekTab.addEventListener('click', function () {
 	removeAllChildren();
 	currentTab = 'week';
 	renderPage(currentTab);
-	renderTasks(currentTab);
+	renderWeek();
 });
 
 renderPage(currentTab);
-renderTasks();
+renderTasks(currentTab);
 
 document.addEventListener('click', function (e) {
 	if (e.target.classList.contains('add-task')) {

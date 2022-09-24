@@ -3,7 +3,7 @@ import appendTaskAddButton from './append-add-task-button';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { parseISO, format } from 'date-fns';
 
-export default function renderTasks() {
+export default function renderToday() {
 	//sorts tasks by closest due date
 	allTasks.sort(function compare(a, b) {
 		var dateA = new Date(a.dueDate);
@@ -12,20 +12,48 @@ export default function renderTasks() {
 	});
 
 	//filters 'all task' array and returns tasks due within current week
-	const weekArray = allTasks.filter(filterWeek);
+	const todayArray = allTasks.filter(filterToday);
 
-	function filterWeek(date) {
-		const sevenDays = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+	function filterToday(date) {
+		const today = new Date(Date.now() + 24 * 60 * 60 * 1000);
 		return (
-			parseISO(date.dueDate) <= sevenDays &&
+			parseISO(date.dueDate) <= today &&
 			parseISO(date.dueDate) >= Date.now()
 		);
 	}
 
-	for (let i = 0; i < allTasks.length; i++) {
-		let title = allTasks[i].title;
-		let details = allTasks[i].details;
-		let date = allTasks[i].dueDate;
+	if (todayArray.length === 0) {
+		const taskList = document.querySelector('.task-list');
+		const newTaskDOM = document.createElement('li');
+		const titleDOM = document.createElement('p');
+
+		titleDOM.textContent = 'No tasks yet...';
+
+		titleDOM.classList.add('text-red-500', 'text-lg');
+
+		newTaskDOM.classList.add(
+			'px-2',
+			'flex',
+			'justify-center',
+			'border',
+			'rounded',
+			'border-transparent',
+			'align-middle',
+			'py-2',
+			'gap-4',
+			'transition-all',
+			'duration-300'
+		);
+
+		newTaskDOM.appendChild(titleDOM);
+
+		taskList.appendChild(newTaskDOM);
+	}
+
+	for (let i = 0; i < todayArray.length; i++) {
+		let title = todayArray[i].title;
+		let details = todayArray[i].details;
+		let date = todayArray[i].dueDate;
 
 		// console.log(parseISO(date));
 
