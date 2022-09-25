@@ -2,11 +2,13 @@ import './style.css';
 import Task from './create-task';
 import { appendTaskForm } from './append-task-form';
 import { submitTaskForm } from './submit-task-form';
+import { appendProjectForm } from './append-project-form';
 import renderPage from './render-page';
 import removeAllChildren from './remove-page';
 import renderTasks from './render-tasks';
 import renderWeek from './render-week';
 import renderToday from './render-today';
+import appendTaskAddButton from './append-add-task-button';
 
 export const allTasks = [
 	{
@@ -105,6 +107,8 @@ document.addEventListener('submit', function (e) {
 const allTasksTab = document.querySelector('.all-tasks-tab');
 const todayTab = document.querySelector('.today-tab');
 const weekTab = document.querySelector('.week-tab');
+const addProject = document.querySelector('.add-project');
+const projectList = document.querySelector('.task-sidebar');
 
 allTasksTab.addEventListener('click', function () {
 	if (currentTab === 'all') {
@@ -132,6 +136,10 @@ weekTab.addEventListener('click', function () {
 	currentTab = 'week';
 	renderPage(currentTab);
 	renderWeek();
+});
+addProject.addEventListener('click', function () {
+	console.log('click project list');
+	projectList.append(appendProjectForm());
 });
 
 renderPage(currentTab);
