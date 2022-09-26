@@ -25,8 +25,9 @@ export function appendProjectForm() {
 		'focus:border-transparent',
 		'focus:ring-0',
 		'text-highlightBlue',
-		'bg-OOFGrey',
-		'bg-opacity-10',
+		'bg-transparent',
+		// 'bg-OOFGrey',
+		// 'bg-opacity-10',
 		'py-1',
 		'px-2',
 		'rounded-md'
@@ -38,9 +39,10 @@ export function appendProjectForm() {
 		'dark:text-white',
 		'hover:bg-gray-100',
 		'dark:hover:bg-gray-700',
-		'px-2',
+		'px-1',
 		'cursor-pointer',
-		'py-2'
+		'py-2',
+		'mr-1'
 	);
 	confirmButton.classList.add(
 		'new-project-confirm',
@@ -62,7 +64,9 @@ export function appendProjectForm() {
 		'w-full',
 		'bg-darkBlue',
 		'bg-opacity-10',
-		'font-raj'
+		'font-raj',
+		'bg-gray-500',
+		'rounded-md'
 	);
 
 	newLi.appendChild(titleInput);

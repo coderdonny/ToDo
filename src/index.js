@@ -162,13 +162,16 @@ document.addEventListener('click', function (e) {
 		const newProjectTitleInput = document.querySelector(
 			'.project-title-input'
 		).value;
-		projectList.append(appendNewProject(newProjectTitleInput));
+		if (newProjectTitleInput === '') {
+			return;
+		}
 		document
 			.querySelector('.add-project-button')
 			.classList.remove('hidden');
 		document.querySelector('.create-project-li').remove();
 
 		console.log(newProjectTitleInput);
+		projectList.appendChild(appendNewProject(newProjectTitleInput));
 	}
 });
 

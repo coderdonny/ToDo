@@ -11,17 +11,6 @@ export default function renderTasks() {
 		return dateA - dateB;
 	});
 
-	//filters 'all task' array and returns tasks due within current week
-	const weekArray = allTasks.filter(filterWeek);
-
-	function filterWeek(date) {
-		const sevenDays = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-		return (
-			parseISO(date.dueDate) <= sevenDays &&
-			parseISO(date.dueDate) >= Date.now()
-		);
-	}
-
 	for (let i = 0; i < allTasks.length; i++) {
 		let title = allTasks[i].title;
 		let details = allTasks[i].details;
