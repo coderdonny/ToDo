@@ -5,14 +5,18 @@ export function appendProjectForm() {
 
 	titleInput.setAttribute('required', '');
 
-	// const row = document.createElement('p');
+	const confirmButton = document.createElement('img');
+	confirmButton.src = './images/confirm.svg';
+
+	const cancelButton = document.createElement('img');
+	cancelButton.src = './images/cancel.svg';
 
 	titleInput.setAttribute('type', 'text');
 	titleInput.setAttribute('id', 'title');
-	titleInput.setAttribute('placeholder', 'e.g., "Clean the dishes"');
+	titleInput.setAttribute('placeholder', 'Project Name');
 
 	titleInput.classList.add(
-		'task-title-input',
+		'project-title-input',
 		'bg-transparent',
 		'w-full',
 		'focus:border-none',
@@ -28,29 +32,46 @@ export function appendProjectForm() {
 		'rounded-md'
 	);
 
+	cancelButton.classList.add(
+		'new-project-cancel',
+		'rounded-lg',
+		'dark:text-white',
+		'hover:bg-gray-100',
+		'dark:hover:bg-gray-700',
+		'px-2',
+		'cursor-pointer',
+		'py-2'
+	);
+	confirmButton.classList.add(
+		'new-project-confirm',
+		'rounded-lg',
+		'dark:text-white',
+		'hover:bg-gray-100',
+		'dark:hover:bg-gray-700',
+		'px-1',
+		'cursor-pointer',
+		'py-2'
+	);
+
 	newLi.classList.add(
-		'create-task-li',
-		'pl-4',
-		'rounded',
-		'align-middle',
-		'py-2',
+		'create-project-li',
+		'items-center',
+		'p-1',
 		'gap-2',
 		'flex',
-		'shadow-2xl',
-		'w-1/3',
-		'h-fit',
-		'my-52',
+		'w-full',
 		'bg-darkBlue',
 		'bg-opacity-10',
-		'backdrop-blur-lg',
 		'font-raj',
 		'ml-5',
 		'border-l',
 		'border-lightBlue',
-		'pl-5'
+		'pl-6'
 	);
 
 	newLi.appendChild(titleInput);
+	newLi.appendChild(confirmButton);
+	newLi.appendChild(cancelButton);
 
 	return newLi;
 }

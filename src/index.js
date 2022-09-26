@@ -137,9 +137,29 @@ weekTab.addEventListener('click', function () {
 	renderPage(currentTab);
 	renderWeek();
 });
+
 addProject.addEventListener('click', function () {
 	console.log('click project list');
 	projectList.append(appendProjectForm());
+	projectList.querySelector('.add-project').classList.add('hidden');
+});
+
+document.addEventListener('click', function (e) {
+	if (e.target.classList.contains('new-project-cancel')) {
+		console.log('cancel test');
+		document.querySelector('.create-project-li').remove();
+		document.querySelector('.add-project').classList.remove('hidden');
+	}
+});
+
+document.addEventListener('click', function (e) {
+	if (e.target.classList.contains('new-project-confirm')) {
+		console.log('confirm test');
+		const newProjectTitleInput = document.querySelector(
+			'.project-title-input'
+		).value;
+		console.log(newProjectTitleInput);
+	}
 });
 
 renderPage(currentTab);
