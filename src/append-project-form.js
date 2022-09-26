@@ -62,11 +62,7 @@ export function appendProjectForm() {
 		'w-full',
 		'bg-darkBlue',
 		'bg-opacity-10',
-		'font-raj',
-		'ml-5',
-		'border-l',
-		'border-lightBlue',
-		'pl-6'
+		'font-raj'
 	);
 
 	newLi.appendChild(titleInput);

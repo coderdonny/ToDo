@@ -9,6 +9,7 @@ import renderTasks from './render-tasks';
 import renderWeek from './render-week';
 import renderToday from './render-today';
 import appendTaskAddButton from './append-add-task-button';
+import { appendNewProject } from './append-new-project';
 
 export const allTasks = [
 	{
@@ -107,8 +108,8 @@ document.addEventListener('submit', function (e) {
 const allTasksTab = document.querySelector('.all-tasks-tab');
 const todayTab = document.querySelector('.today-tab');
 const weekTab = document.querySelector('.week-tab');
-const addProject = document.querySelector('.add-project');
-const projectList = document.querySelector('.task-sidebar');
+const addProject = document.querySelector('.add-project-button');
+const projectList = document.querySelector('.add-project');
 
 allTasksTab.addEventListener('click', function () {
 	if (currentTab === 'all') {
@@ -138,17 +139,20 @@ weekTab.addEventListener('click', function () {
 	renderWeek();
 });
 
+//new project
 addProject.addEventListener('click', function () {
 	console.log('click project list');
 	projectList.append(appendProjectForm());
-	projectList.querySelector('.add-project').classList.add('hidden');
+	document.querySelector('.add-project-button').classList.add('hidden');
 });
 
 document.addEventListener('click', function (e) {
 	if (e.target.classList.contains('new-project-cancel')) {
 		console.log('cancel test');
 		document.querySelector('.create-project-li').remove();
-		document.querySelector('.add-project').classList.remove('hidden');
+		document
+			.querySelector('.add-project-button')
+			.classList.remove('hidden');
 	}
 });
 
@@ -158,6 +162,12 @@ document.addEventListener('click', function (e) {
 		const newProjectTitleInput = document.querySelector(
 			'.project-title-input'
 		).value;
+		projectList.append(appendNewProject(newProjectTitleInput));
+		document
+			.querySelector('.add-project-button')
+			.classList.remove('hidden');
+		document.querySelector('.create-project-li').remove();
+
 		console.log(newProjectTitleInput);
 	}
 });
