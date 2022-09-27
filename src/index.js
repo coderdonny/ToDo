@@ -10,6 +10,7 @@ import renderWeek from './render-week';
 import renderToday from './render-today';
 import appendTaskAddButton from './append-add-task-button';
 import { appendNewProject } from './append-new-project';
+import { appendAddProjectButton } from './append-add-project-button';
 
 export const allTasks = [
 	{
@@ -108,8 +109,10 @@ document.addEventListener('submit', function (e) {
 const allTasksTab = document.querySelector('.all-tasks-tab');
 const todayTab = document.querySelector('.today-tab');
 const weekTab = document.querySelector('.week-tab');
-const addProject = document.querySelector('.add-project-button');
+// const addProject = document.querySelector('.add-project-button');
 const projectList = document.querySelector('.add-project');
+
+projectList.appendChild(appendAddProjectButton());
 
 allTasksTab.addEventListener('click', function () {
 	if (currentTab === 'all') {
@@ -140,19 +143,25 @@ weekTab.addEventListener('click', function () {
 });
 
 //new project
-addProject.addEventListener('click', function () {
-	console.log('click project list');
-	projectList.append(appendProjectForm());
-	document.querySelector('.add-project-button').classList.add('hidden');
+// addProject.addEventListener('click', function () {
+// 	console.log('click project list');
+// 	projectList.append(appendProjectForm());
+// 	document.querySelector('.add-project-button').classList.add('hidden');
+// });
+
+document.addEventListener('click', function (e) {
+	if (e.target.classList.contains('add-project-button')) {
+		console.log('click project list');
+		projectList.append(appendProjectForm());
+		document.querySelector('.add-project-button').remove();
+	}
 });
 
 document.addEventListener('click', function (e) {
 	if (e.target.classList.contains('new-project-cancel')) {
 		console.log('cancel test');
 		document.querySelector('.create-project-li').remove();
-		document
-			.querySelector('.add-project-button')
-			.classList.remove('hidden');
+		projectList.appendChild(appendAddProjectButton());
 	}
 });
 
@@ -165,13 +174,11 @@ document.addEventListener('click', function (e) {
 		if (newProjectTitleInput === '') {
 			return;
 		}
-		document
-			.querySelector('.add-project-button')
-			.classList.remove('hidden');
+		projectList.appendChild(appendNewProject(newProjectTitleInput));
+		projectList.appendChild(appendAddProjectButton());
 		document.querySelector('.create-project-li').remove();
 
 		console.log(newProjectTitleInput);
-		projectList.appendChild(appendNewProject(newProjectTitleInput));
 	}
 });
 
