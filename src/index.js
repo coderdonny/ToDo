@@ -8,7 +8,6 @@ import removeAllChildren from './remove-page';
 import renderTasks from './render-tasks';
 import renderWeek from './render-week';
 import renderToday from './render-today';
-import appendTaskAddButton from './append-add-task-button';
 import { appendNewProject } from './append-new-project';
 import { appendAddProjectButton } from './append-add-project-button';
 
@@ -109,11 +108,11 @@ document.addEventListener('submit', function (e) {
 const allTasksTab = document.querySelector('.all-tasks-tab');
 const todayTab = document.querySelector('.today-tab');
 const weekTab = document.querySelector('.week-tab');
-// const addProject = document.querySelector('.add-project-button');
 const projectList = document.querySelector('.add-project');
 
 projectList.appendChild(appendAddProjectButton());
 
+//tab listeners
 allTasksTab.addEventListener('click', function () {
 	if (currentTab === 'all') {
 		return;
@@ -142,13 +141,7 @@ weekTab.addEventListener('click', function () {
 	renderWeek();
 });
 
-//new project
-// addProject.addEventListener('click', function () {
-// 	console.log('click project list');
-// 	projectList.append(appendProjectForm());
-// 	document.querySelector('.add-project-button').classList.add('hidden');
-// });
-
+//listens for add project button and appends form
 document.addEventListener('click', function (e) {
 	if (e.target.classList.contains('add-project-button')) {
 		console.log('click project list');
@@ -157,6 +150,7 @@ document.addEventListener('click', function (e) {
 	}
 });
 
+//cancels new project form
 document.addEventListener('click', function (e) {
 	if (e.target.classList.contains('new-project-cancel')) {
 		console.log('cancel test');
@@ -165,6 +159,7 @@ document.addEventListener('click', function (e) {
 	}
 });
 
+//confirms new project, creates new li and appends to sidebar
 document.addEventListener('click', function (e) {
 	if (e.target.classList.contains('new-project-confirm')) {
 		console.log('confirm test');
@@ -182,6 +177,7 @@ document.addEventListener('click', function (e) {
 	}
 });
 
+//renders all tasks by default
 renderPage(currentTab);
 renderTasks(currentTab);
 
@@ -201,4 +197,5 @@ document.addEventListener('click', function (e) {
 	}
 });
 
+//appends hidden task form
 document.body.appendChild(appendTaskForm());

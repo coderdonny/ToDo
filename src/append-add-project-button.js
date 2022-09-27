@@ -19,7 +19,8 @@ export function appendAddProjectButton() {
 		'rounded-lg',
 		'dark:text-white',
 		'hover:bg-gray-100',
-		'dark:hover:bg-gray-700'
+		'dark:hover:bg-gray-700',
+		'cursor-pointer'
 	);
 
 	addProject.classList.add('ml-3', 'add-project-button');

@@ -1,6 +1,7 @@
+let projectID = 0;
+
 export function appendNewProject(name) {
 	const newLink = document.createElement('a');
-	// const newLi = document.createElement('li');
 	const checkMark = document.createElement('img');
 	const projectName = document.createElement('span');
 
@@ -9,6 +10,7 @@ export function appendNewProject(name) {
 	projectName.textContent = name;
 
 	newLink.classList.add(
+		`project${projectID}`,
 		'flex',
 		'items-center',
 		'p-2',
@@ -19,7 +21,8 @@ export function appendNewProject(name) {
 		'rounded-lg',
 		'dark:text-white',
 		'hover:bg-gray-100',
-		'dark:hover:bg-gray-700'
+		'dark:hover:bg-gray-700',
+		'cursor-pointer'
 	);
 
 	projectName.classList.add('ml-3');
@@ -27,5 +30,7 @@ export function appendNewProject(name) {
 	newLink.appendChild(checkMark);
 	newLink.appendChild(projectName);
 
+	newLink.dataset.project = projectID;
+	projectID++;
 	return newLink;
 }

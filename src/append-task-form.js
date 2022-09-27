@@ -159,13 +159,16 @@ export function appendTaskForm() {
 		'gap-2',
 		'flex',
 		'shadow-2xl',
-		'w-1/3',
 		'h-fit',
 		'my-52',
 		'bg-darkBlue',
 		'bg-opacity-10',
 		'backdrop-blur-lg',
-		'font-raj'
+		'font-raj',
+		'sm:w-96',
+		'md:w-3/4',
+		'lg:w-1/2',
+		'xl:w-1/3'
 	);
 
 	const modalContainer = document.createElement('div');
