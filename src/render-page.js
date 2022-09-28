@@ -14,6 +14,8 @@ export default function renderPage(tab) {
 		pageTitle.textContent = 'Today';
 	} else if (tab === 'week') {
 		pageTitle.textContent = 'Week';
+	} else {
+		pageTitle.textContent = tab;
 	}
 
 	//Create list to append task items

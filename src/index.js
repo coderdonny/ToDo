@@ -11,6 +11,7 @@ import renderToday from './render-today';
 import { appendNewProject } from './append-new-project';
 import { appendAddProjectButton } from './append-add-project-button';
 import Project from './create-new-project';
+import renderProjectTasks from './render-project-tasks';
 
 export const allTasks = [
 	{
@@ -71,6 +72,8 @@ function taskRenderer(tab) {
 		return renderToday;
 	} else if (tab === 'week') {
 		return renderWeek();
+	} else {
+		return renderProjectTasks(currentProject);
 	}
 }
 
@@ -91,6 +94,12 @@ document.addEventListener('submit', function (e) {
 
 	const newTask = new Task(title, details, date);
 	allTasks.push(newTask);
+
+	if (currentTab != 'all' || currentTab != 'today' || currentTab != 'week') {
+		console.log('hello');
+		currentProject.push(newTask);
+		console.log(projectArray);
+	}
 
 	console.log(newTask);
 
@@ -190,11 +199,23 @@ document.addEventListener('click', function (e) {
 	}
 });
 
+let currentProject;
+
 projectList.addEventListener('click', function (e) {
 	for (let i = 0; i < projectArray.length; i++) {
 		if (e.target.dataset.project) {
+			currentTab = projectArray[e.target.dataset.project].projectName;
+			removeAllChildren();
+			renderPage(currentTab);
+
 			console.log(e.target.dataset.project);
 			console.log(projectArray[e.target.dataset.project].taskArray);
+
+			currentProject = projectArray[e.target.dataset.project].taskArray;
+
+			renderProjectTasks(
+				projectArray[e.target.dataset.project].taskArray
+			);
 		}
 	}
 });

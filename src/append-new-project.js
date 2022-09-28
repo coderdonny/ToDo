@@ -29,5 +29,7 @@ export function appendNewProject(name, projectID) {
 	newLink.appendChild(projectName);
 
 	newLink.dataset.project = projectID;
+	checkMark.dataset.project = projectID;
+	projectName.dataset.project = projectID;
 	return newLink;
 }
