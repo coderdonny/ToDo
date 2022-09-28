@@ -1,6 +1,6 @@
 export default class Project {
-	constructor(projectName, array) {
+	constructor(projectName, taskArray) {
 		this.projectName = projectName;
-		this.array = array;
+		this.taskArray = taskArray;
 	}
 }

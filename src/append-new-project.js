@@ -1,6 +1,4 @@
-let projectID = 0;
-
-export function appendNewProject(name) {
+export function appendNewProject(name, projectID) {
 	const newLink = document.createElement('a');
 	const checkMark = document.createElement('img');
 	const projectName = document.createElement('span');
@@ -31,6 +29,5 @@ export function appendNewProject(name) {
 	newLink.appendChild(projectName);
 
 	newLink.dataset.project = projectID;
-	projectID++;
 	return newLink;
 }

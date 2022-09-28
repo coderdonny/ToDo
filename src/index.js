@@ -10,6 +10,7 @@ import renderWeek from './render-week';
 import renderToday from './render-today';
 import { appendNewProject } from './append-new-project';
 import { appendAddProjectButton } from './append-add-project-button';
+import Project from './create-new-project';
 
 export const allTasks = [
 	{
@@ -58,6 +59,8 @@ export const allTasks = [
 		dueDate: '2022-12-11',
 	},
 ];
+
+const projectArray = [];
 
 let currentTab = 'all';
 
@@ -144,7 +147,7 @@ weekTab.addEventListener('click', function () {
 //listens for add project button and appends form
 document.addEventListener('click', function (e) {
 	if (e.target.classList.contains('add-project-button')) {
-		console.log('click project list');
+		// console.log('click project list');
 		projectList.append(appendProjectForm());
 		document.querySelector('.add-project-button').remove();
 	}
@@ -153,27 +156,46 @@ document.addEventListener('click', function (e) {
 //cancels new project form
 document.addEventListener('click', function (e) {
 	if (e.target.classList.contains('new-project-cancel')) {
-		console.log('cancel test');
+		// console.log('cancel test');
 		document.querySelector('.create-project-li').remove();
 		projectList.appendChild(appendAddProjectButton());
 	}
 });
 
+let projectID = 0;
 //confirms new project, creates new li and appends to sidebar
 document.addEventListener('click', function (e) {
 	if (e.target.classList.contains('new-project-confirm')) {
-		console.log('confirm test');
+		// console.log('confirm test');
 		const newProjectTitleInput = document.querySelector(
 			'.project-title-input'
 		).value;
 		if (newProjectTitleInput === '') {
 			return;
 		}
-		projectList.appendChild(appendNewProject(newProjectTitleInput));
+		projectList.appendChild(
+			appendNewProject(newProjectTitleInput, projectID)
+		);
 		projectList.appendChild(appendAddProjectButton());
 		document.querySelector('.create-project-li').remove();
 
-		console.log(newProjectTitleInput);
+		const newProjectArray = [];
+		const newProject = new Project(newProjectTitleInput, newProjectArray);
+		console.log(newProject);
+		console.log(newProject.taskArray);
+
+		projectArray.push(newProject);
+		console.log(projectArray);
+		projectID++;
+	}
+});
+
+projectList.addEventListener('click', function (e) {
+	for (let i = 0; i < projectArray.length; i++) {
+		if (e.target.dataset.project) {
+			console.log(e.target.dataset.project);
+			console.log(projectArray[e.target.dataset.project].taskArray);
+		}
 	}
 });
 
