@@ -32,8 +32,8 @@
 
 
     <div class="flex h-full">
-        <aside class="w-72" aria-label=" Sidebar">
-            <div class="overflow-y-auto py-4 px-8 bg-transparent h-full rounded-b-xl">
+        <aside class="sidebar hidden lg:flex w-72" aria-label=" Sidebar">
+            <div class="sidebar overflow-y-auto py-4 px-8 bg-transparent h-full rounded-b-xl">
                 <ul class="task-sidebar space-y-2">
                     <li>
                         <p class="flex items-center p-2 text-base font-raj font-medium text-gray-900">
@@ -137,9 +137,14 @@
                         </li> -->
                     </div>
                 </ul>
-            </div>
+
         </aside>
-        <div class="task-container wrapper pt-4 px-8 w-7/12 text-base font-raj text-offWhite">
+
+        <button id="hamburger" class="lg:hidden self-start pt-4 z-50 ml-4">
+            <img src="./images/hamburger.svg" alt="" srcset="">
+        </button>
+
+        <div class="task-container wrapper pt-4 px-8 w-full xl:w-7/12 text-base font-raj text-offWhite">
 
         </div>
     </div>
