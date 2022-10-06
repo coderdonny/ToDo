@@ -242,3 +242,35 @@ document.addEventListener('click', function (e) {
 
 //appends hidden task form
 document.body.appendChild(appendTaskForm());
+
+const hamburgerMenu = document.querySelector('#hamburger');
+hamburgerMenu.addEventListener('click', toggleMobileMenu);
+
+function toggleMobileMenu() {
+	console.log('hello');
+	const sidebar = document.querySelector('.sidebar');
+	if (sidebar.classList.contains('hidden')) {
+		sidebar.classList.add(
+			'sm:block',
+			'sm:absolute',
+			'sm:bg-darkBlue',
+			'sm:h-full',
+			'sm:bg-opacity-100',
+			'sm:z-10',
+			'sm:pl-8',
+			'sm:bg-opacity-95'
+		);
+		sidebar.classList.remove('hidden');
+	} else {
+		sidebar.classList.remove(
+			'sm:block',
+			'sm:absolute',
+			'sm:bg-darkBlue',
+			'sm:h-full',
+			'sm:bg-opacity-100',
+			'sm:z-10',
+			'sm:pl-8'
+		);
+		sidebar.classList.add('hidden');
+	}
+}
